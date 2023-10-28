@@ -46,6 +46,7 @@ main{
     padding-top: 2rem;
     text-align: center;
     color:hsl(234, 11%, 52%) ;
+    font-size: 0.85rem;
 }
 .main-container{
     color: #999BB0;
@@ -60,7 +61,7 @@ main{
 .background-img{
     background-image: url('images/bg-mobile-dark.jpg');
     width: 100%;
-    height: 17.5rem;
+    height: 15.75rem;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
