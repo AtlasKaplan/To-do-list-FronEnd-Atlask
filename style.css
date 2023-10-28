@@ -45,9 +45,10 @@ main{
 .drag{
     padding-top: 2rem;
     text-align: center;
+    color:hsl(234, 11%, 52%) ;
 }
 .main-container{
-    color: white;
+    color: #999BB0;
     font-family: 'Josefin Sans', sans-serif;
     display: flex;
     flex-direction: column;
@@ -71,6 +72,7 @@ main{
 
 .head{ 
     display: flex;
+    color: white;
     align-items: center;
     justify-content: space-between;
     z-index: 1;
@@ -88,21 +90,44 @@ main{
 .new-todo{
     margin-bottom: 1.5rem;
     background-color: hsl(235, 24%, 19%);
-    padding: 1.25rem;
+    padding: 1rem 1.25rem;
     border-radius: 0.33rem;
 }
 .navigation{
-    display: flex;
     background-color: hsl(235, 24%, 19%);
     margin-top: 1.25rem;
-    padding: 1.25rem;
+    padding: 0.85rem 1.25rem;
     border-radius: 0.33rem;
+    
 }
-
+.buttons>p,.clear>p:nth-last-child(1){
+    cursor: pointer;
+}
+.buttons>p:hover,.clear>p:nth-last-child(1):hover {
+    color: hsl(220, 98%, 61%);
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-inline: 1.75rem;
+    color: hsl(234, 11%, 52%);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+.clear{
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.85rem;
+    color: hsl(234, 11%, 52%);
+    
+}
 .container{
     background-color: hsl(235, 24%, 19%);
     height: 85%;
     border-radius: 0.33rem;
+    display: grid;
 }
 
 
