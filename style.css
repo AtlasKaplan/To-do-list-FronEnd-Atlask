@@ -61,7 +61,7 @@ main{
 .background-img{
     background-image: url('images/bg-mobile-dark.jpg');
     width: 100%;
-    height: 15.75rem;
+    height: 16rem;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
