@@ -69,7 +69,7 @@ main{
 .background-img{
     background-image: url('images/bg-mobile-dark.jpg');
     width: 100%;
-    height: 16rem;
+    height: 15.75rem;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
@@ -114,7 +114,8 @@ main{
 }
 .new-todo>div:hover{
     background: linear-gradient(135deg, rgba(71, 218, 255, 0.603) 32%, rgba(191, 88, 243, 0.678) 72%);
-    border-color: hsl(235, 24%, 19%);
+    border: none;    
+    padding: 11px;
 }
 .navigation{
     background-color: hsl(235, 24%, 19%);
@@ -166,7 +167,8 @@ main{
 }
 .task-div>img:nth-child(1):hover{
     background: linear-gradient(135deg, rgba(71, 218, 255, 0.603) 32%, rgba(191, 88, 243, 0.678) 72%);
-    border-color: hsl(235, 24%, 19%);
+    border: none;
+    padding: 7px;
 }
 .cross:hover{
     filter: invert(10%) sepia(200%) saturate(100%) hue-rotate(0deg) brightness(110%) contrast(900%);
@@ -178,6 +180,7 @@ main{
     justify-content: space-between;
     padding: 1rem;
     gap: 10px;
+    color: hsl(234, 39%, 85%);
 }
 .brorder-bottom{
     border-bottom: 1px solid hsla(233, 11%, 52%, 0.247);
