@@ -66,17 +66,21 @@ main{
     margin: 0 auto;
     
 }
-.background-img{
-    background-image: url('images/bg-mobile-dark.jpg');
+.background-img-container {
+    position: absolute;
     width: 100%;
     height: 15.75rem;
+}
+
+.background-img {
+    background-image: url('images/bg-mobile-dark.jpg');
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
-    position: absolute;
-    top: 0;
-    z-index: 1;   
-    max-width: 600px;
-    
+    margin: 0 auto;
 }
 
 .head{ 
@@ -199,4 +203,25 @@ footer{
 }
 a:link{
     color: aqua;
+}
+
+
+
+
+@media (min-width:1000px) {
+    .main-container{
+        max-width: 700px;
+    }
+    .background-img{
+        background-image: url('images/bg-desktop-dark.jpg');
+        max-width: 100vw;
+        height: 17rem;
+    }
+    .navigation{
+        margin-top: -3.3rem;
+    }
+    .buttons {
+        justify-content: center;
+        gap: 2rem;
+    }
 }
