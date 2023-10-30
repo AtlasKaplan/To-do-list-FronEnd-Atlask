@@ -31,6 +31,13 @@ p,h1,h2,h3,h4,h5,h6 {
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
 
+
+
+
+
+
+
+
 body{
     background-color: hsl(235, 21%, 11%);
 
@@ -40,7 +47,7 @@ main{
     height: 500px;
     margin: 2rem;
     z-index: 10;
-    
+    font-size: 13px;
 }
 .drag{
     padding-top: 2rem;
@@ -122,20 +129,54 @@ main{
     padding: 1.25rem 1.5rem;
     font-size: 0.85rem;
     color: hsl(234, 11%, 52%);
-    
+    border-top: 1px solid hsla(233, 11%, 52%, 0.247) ;
+    background-color: hsl(235, 24%, 19%);
+    border-radius: 0 0 0.25rem 0.25rem;
 }
 .container{
     background-color: hsl(235, 24%, 19%);
     height: 85%;
-    border-radius: 0.33rem;
-    display: grid;
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+.task-div>img{
+    cursor: pointer;
+}
+.task-div>img:nth-last-child(1){
+    width: 5%;
+    
+}
+.task-div>img:nth-child(1){
+    border: 1px solid rgba(255, 255, 255, 0.459);
+    padding: 6px;
+    border-radius: 50%;
+}
+.task-div>img:nth-child(1):hover{
+    background: linear-gradient(135deg, rgba(71, 218, 255, 0.603) 32%, rgba(191, 88, 243, 0.678) 72%);
+    border-color: hsl(235, 24%, 19%);
+}
+.cross:hover{
+filter: invert(10%) sepia(200%) saturate(100%) hue-rotate(0deg) brightness(110%) contrast(900%);
+}
+
+.task-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 10px;
+}
+.brorder-bottom{
+    border-bottom: 1px solid hsla(233, 11%, 52%, 0.247);
+}
+.task-div>p{
+    margin-right: auto;
 }
 
 
 
 footer{
     text-align: center;
-    margin-top: 10rem;
+    margin-top: 12.5rem;
 }
 a:link{
     color: aqua;
