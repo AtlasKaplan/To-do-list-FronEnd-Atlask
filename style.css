@@ -136,7 +136,7 @@ main{
 .container{
     background-color: hsl(235, 24%, 19%);
     height: 85%;
-    border-radius: 0.25rem 0.25rem 0 0;
+    border-radius: 0.25rem  0.25rem 0 0;
 }
 .task-div>img{
     cursor: pointer;
@@ -170,7 +170,9 @@ filter: invert(10%) sepia(200%) saturate(100%) hue-rotate(0deg) brightness(110%)
 }
 .task-div>p{
     margin-right: auto;
+    cursor: pointer;
 }
+
 
 
 
