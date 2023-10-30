@@ -52,8 +52,9 @@ main{
 .drag{
     padding-top: 2rem;
     text-align: center;
-    color:hsl(234, 11%, 52%) ;
-    font-size: 0.85rem;
+    color:hsl(234, 17%, 35%) ;
+    font-size: 0.80rem;
+    font-weight: 700;
 }
 .main-container{
     color: #999BB0;
@@ -141,7 +142,7 @@ main{
     display: flex;
     justify-content: space-between;
     padding: 1.25rem 1.5rem;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: hsl(234, 11%, 52%);
     border-top: 1px solid hsla(233, 11%, 52%, 0.247) ;
     background-color: hsl(235, 24%, 19%);
@@ -155,7 +156,7 @@ main{
     cursor: pointer;
 }
 .task-div>img:nth-last-child(1){
-    width: 5%;
+    width: 15px;
     
 }
 .task-div>img:nth-child(1){
