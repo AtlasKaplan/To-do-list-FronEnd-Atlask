@@ -210,7 +210,7 @@ a:link{
 
 @media (min-width:1000px) {
     .main-container{
-        max-width: 700px;
+        max-width: 666px;
     }
     .background-img{
         background-image: url('images/bg-desktop-dark.jpg');
