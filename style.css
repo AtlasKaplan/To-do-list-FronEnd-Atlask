@@ -100,6 +100,20 @@ main{
     background-color: hsl(235, 24%, 19%);
     padding: 1rem 1.25rem;
     border-radius: 0.33rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 10px;
+}
+.new-todo>div{
+    border: 1px solid rgba(255, 255, 255, 0.459);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.new-todo>div:hover{
+    background: linear-gradient(135deg, rgba(71, 218, 255, 0.603) 32%, rgba(191, 88, 243, 0.678) 72%);
+    border-color: hsl(235, 24%, 19%);
 }
 .navigation{
     background-color: hsl(235, 24%, 19%);
@@ -135,7 +149,6 @@ main{
 }
 .container{
     background-color: hsl(235, 24%, 19%);
-    height: 85%;
     border-radius: 0.25rem  0.25rem 0 0;
 }
 .task-div>img{
@@ -155,7 +168,7 @@ main{
     border-color: hsl(235, 24%, 19%);
 }
 .cross:hover{
-filter: invert(10%) sepia(200%) saturate(100%) hue-rotate(0deg) brightness(110%) contrast(900%);
+    filter: invert(10%) sepia(200%) saturate(100%) hue-rotate(0deg) brightness(110%) contrast(900%);
 }
 
 .task-div{
