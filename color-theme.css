@@ -1,0 +1,48 @@
+:root {
+    --main-bg-drk: hsl(235, 21%, 11%);
+    --card-bg-drk: #25273C;
+    --text-drk: hsl(234, 39%, 85%);
+
+    /* /////////////////////////////////// */
+
+    --main-bg-wh: #F8F8F9;
+    --card-bg-wh: #FFFFFF;
+    --text-wh: hsl(236, 20%, 16%);
+
+
+    /* /////////////////////////////// */
+}
+
+.body.color{
+    background-color: var(--main-bg-wh);
+}
+.body.color main .container, .body.color main .new-todo, .body.color main .navigation
+,.body.color main .clear{
+    background-color: var(--card-bg-wh);
+}
+.body.color main .container .task-div{
+    color: var(--main-bg-drk);
+}
+
+.body.color main .new-todo>div,.body.color main .container .task-div>img:nth-child(1){
+    border-color: hsla(235, 21%, 11%, 0.445);
+}
+
+.body.color .background-img-container .background-img{
+    background-image: url('images/bg-mobile-light.jpg');
+}
+
+.body.color footer{
+    color: black;
+}
+.body.color footer a:link{
+    color: purple;
+}
+
+
+
+@media (min-width:1000px){
+    .body.color .background-img-container .background-img {
+        background-image: url('images/bg-desktop-light.jpg');
+    }
+}

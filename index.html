@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-  <script src="index.js"></script>
+  <link rel="stylesheet" href="color-theme.css">
+  
   
   <title>Frontend Mentor | Todo app | AtlasK</title>
 
 
 </head>
-<body>
+<body class="body">
   <div class="background-img-container">
     <div class="background-img"></div>
   </div>
@@ -20,7 +21,8 @@
   <header class="head">
     
       <h1>Todo</h1>
-      <img class="logo-theme" src="images/icon-sun.svg" alt="">
+      <img  class="logo-theme " src="images/icon-sun.svg" alt="sun"id="temaSwitch1" onclick="cambiarTema()">
+      <img class="logo-theme hidden" src="images/icon-moon.svg" alt="moon"id="temaSwitch2" onclick="cambiarTema()">
     
   </header>
 
@@ -67,4 +69,5 @@
   </footer>
   </div>
 </body>
+<script src="index.js"></script>
 </html>

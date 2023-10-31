@@ -33,13 +33,28 @@ p,h1,h2,h3,h4,h5,h6 {
 
 
 
+:root{
+    --main-bg-drk: hsl(235, 21%, 11%);
+    --card-bg-drk: #25273C;
+    --text-drk: hsl(234, 39%, 85%);
+
+    /* /////////////////////////////////// */
+
+    --main-bg-wh: hsl(0, 0%, 98%);
+    --card-bg-wh: hsl(236, 33%, 92%);
+    --text-wh: hsl(235, 19%, 35%);
+
+
+    /* /////////////////////////////// */
+}
 
 
 
 
-
-body{
-    background-color: hsl(235, 21%, 11%);
+.body{
+    background-color: var(--main-bg-drk);
+    min-height: 100vh;
+    margin: 0;
 
 }
 
@@ -184,7 +199,7 @@ main{
     justify-content: space-between;
     padding: 1rem;
     gap: 10px;
-    color: hsl(234, 39%, 85%);
+    color: var(--text-drk);
 }
 .brorder-bottom{
     border-bottom: 1px solid hsla(233, 11%, 52%, 0.247);
@@ -194,6 +209,9 @@ main{
     cursor: pointer;
 }
 
+.hidden{
+    display: none;
+}
 
 
 
@@ -223,5 +241,11 @@ a:link{
     .buttons {
         justify-content: center;
         gap: 2rem;
+    }
+    main{
+        font-size: 0.90rem;
+    }
+    .task-div,.new-todo{
+        gap: 17.5px;
     }
 }
