@@ -19,3 +19,7 @@ function cambiarTema() {
     sol.classList.toggle('hidden');
     luna.classList.toggle('hidden');
 }
+
+
+var input = document.querySelector('.input-task');
+

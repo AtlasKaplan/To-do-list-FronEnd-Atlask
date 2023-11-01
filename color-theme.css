@@ -31,6 +31,9 @@
 .body.color .background-img-container .background-img{
     background-image: url('images/bg-mobile-light.jpg');
 }
+.body.color main .new-todo .input-task{
+    color: var(--text-wh);
+}
 
 .body.color footer{
     color: black;

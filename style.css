@@ -136,6 +136,13 @@ main{
     border: none;    
     padding: 11px;
 }
+.input-task{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    outline: none;
+    color: var(--text-drk);
+}
 .navigation{
     background-color: hsl(235, 24%, 19%);
     margin-top: 1.25rem;
