@@ -13,7 +13,7 @@ luna.addEventListener('click', function () {
 function cambiarTema() {
     sol.classList.toggle('hidden');
     luna.classList.toggle('hidden');
-}
+};
 
 
 
@@ -45,6 +45,10 @@ function addTask() {
         crossIcon.src = 'images/icon-cross.svg';
         crossIcon.alt = 'cross';
 
+        crossIcon.addEventListener('click', function () {
+            newDiv.remove();
+        });
+
         newDiv.appendChild(checkIcon);
         newDiv.appendChild(taskText);
         newDiv.appendChild(crossIcon);
@@ -52,13 +56,16 @@ function addTask() {
         document.querySelector('.container').appendChild(newDiv);
 
         input.value = '';
-    }
-}
+
+    };
+};
 
 addBtn.addEventListener('click', addTask);
 
 input.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         addTask();
-    }
+    };
 });
+
+
