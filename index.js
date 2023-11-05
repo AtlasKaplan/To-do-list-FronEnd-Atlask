@@ -48,15 +48,26 @@ function createTaskElement(taskText) {
     var taskTextElement = document.createElement('p');
     taskTextElement.textContent = taskText;
 
+    // Agrega el evento onclick al elemento taskTextElement
+    taskTextElement.onclick = function () {
+        toggleActiveState(newDiv);
+    };
+
     var crossIcon = document.createElement('img');
     crossIcon.classList.add('cross');
     crossIcon.src = 'images/icon-cross.svg';
     crossIcon.alt = 'cross';
 
+    // Agrega el evento onclick al elemento crossIcon
     crossIcon.addEventListener('click', function () {
         newDiv.remove();
         saveTasks(); // Guardar la lista después de eliminar una tarea
     });
+
+    // Agrega el evento onclick al elemento checkIcon
+    checkIcon.onclick = function () {
+        toggleActiveState(newDiv);
+    };
 
     newDiv.appendChild(checkIcon);
     newDiv.appendChild(taskTextElement);
@@ -89,6 +100,11 @@ function loadTasks() {
         });
     }
 }
+
+function toggleActiveState(element) {
+      // Alternar la clase "active" en el contenedor al hacer clic
+    element.classList.toggle('active');
+    }
 
 // Asociar funciones a eventos
 sol.addEventListener('click', cambiarTema);
