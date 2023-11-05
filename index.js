@@ -19,11 +19,15 @@ luna.addEventListener('click', function () {
     body.classList.toggle('color');
 });
 
-function cambiarTema() {
-    sol.classList.toggle('hidden');
-    luna.classList.toggle('hidden');
+function cambiarTemaSol() {
+    sol.classList.add('hidden');
+    luna.classList.remove('hidden');
 }
 
+function cambiarTemaLuna() {
+    luna.classList.add('hidden');
+    sol.classList.remove('hidden');
+}
 // Función para agregar una tarea
 function addTask() {
     var value = input.value.trim();
