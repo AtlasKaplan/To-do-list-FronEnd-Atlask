@@ -111,8 +111,6 @@ function toggleActiveState(element) {
     }
 
 // Asociar funciones a eventos
-sol.addEventListener('click', cambiarTema);
-luna.addEventListener('click', cambiarTema);
 addBtn.addEventListener('click', addTask);
 input.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
