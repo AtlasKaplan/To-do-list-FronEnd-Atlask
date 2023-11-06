@@ -8,7 +8,10 @@ var container = document.querySelector('.container');
 
 // Cargar tareas almacenadas al cargar la página
 window.addEventListener('load', function () {
-    loadTasks();
+    // Llamar a loadTasks y después a contarTaskDivs cuando la carga esté completa
+    loadTasks().then(function () {
+        contarTaskDivs();
+    });
 });
 
 // Cambiar tema
@@ -28,6 +31,17 @@ function cambiarTemaLuna() {
     luna.classList.add('hidden');
     sol.classList.remove('hidden');
 }
+function contarTaskDivs() {
+    // Obtén la cantidad de elementos con la clase 'task-div' que no tienen la clase 'active'
+    var totalTaskDivs = document.querySelectorAll('.task-div:not(.active)').length;
+
+    // Actualiza el contenido del elemento con la clase 'total-task'
+    document.querySelector('.total-task').textContent = totalTaskDivs;
+}
+
+// Llama a la función al cargar la página para inicializar el contador
+contarTaskDivs();
+
 // Función para agregar una tarea
 function addTask() {
     var value = input.value.trim();
@@ -36,6 +50,7 @@ function addTask() {
         var capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
         createTaskElement(capitalizedValue);
         input.value = '';
+        contarTaskDivs()
         saveTasks(); // Guardar la lista después de agregar una tarea
     }
 }
@@ -65,6 +80,7 @@ function createTaskElement(taskText) {
     // Agrega el evento onclick al elemento crossIcon
     crossIcon.addEventListener('click', function () {
         newDiv.remove();
+        contarTaskDivs();
         saveTasks(); // Guardar la lista después de eliminar una tarea
     });
 
@@ -94,27 +110,38 @@ function saveTasks() {
 
 // Función para cargar las tareas desde localStorage
 function loadTasks() {
-    var storedTasks = localStorage.getItem('tasks');
+    return new Promise(function (resolve) {
+        var storedTasks = localStorage.getItem('tasks');
 
-    if (storedTasks) {
-        var tasks = JSON.parse(storedTasks);
+        if (storedTasks) {
+            var tasks = JSON.parse(storedTasks);
 
-        tasks.forEach(function (task) {
-            createTaskElement(task);
-        });
-    }
+            tasks.forEach(function (task) {
+                createTaskElement(task);
+            });
+        }
+
+        // Llamamos a resolve cuando la carga de tareas está completa
+        resolve();
+    });
 }
 
 function toggleActiveState(element) {
       // Alternar la clase "active" en el contenedor al hacer clic
     element.classList.toggle('active');
+    contarTaskDivs();
     }
 
 // Asociar funciones a eventos
-addBtn.addEventListener('click', addTask);
+addBtn.addEventListener('click', function () {
+    addTask();
+    contarTaskDivs();  // Llama a contarTaskDivs después de agregar una tarea
+});
+
 input.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         addTask();
+        contarTaskDivs();  // Llama a contarTaskDivs después de agregar una tarea
     }
 });
 
@@ -134,6 +161,7 @@ clear.addEventListener('click', function() {
     taskDiv.remove();
     saveTasks();
     });
+    contarTaskDivs();
 });
 
 
