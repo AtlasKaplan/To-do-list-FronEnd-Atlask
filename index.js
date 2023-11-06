@@ -117,3 +117,23 @@ input.addEventListener('keydown', function (event) {
         addTask();
     }
 });
+
+
+
+// boton clear
+
+var clear = document.getElementById('clear');
+
+// Agregar el event listener al botón clear
+clear.addEventListener('click', function() {
+  // Obtener todos los elementos con la clase 'task-div' y 'active'
+    var taskDivs = document.querySelectorAll('.task-div.active');
+
+  // Iterar sobre los elementos y eliminar cada uno
+    taskDivs.forEach(function(taskDiv) {
+    taskDiv.remove();
+    saveTasks();
+    });
+});
+
+
