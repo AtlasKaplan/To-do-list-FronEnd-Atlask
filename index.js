@@ -111,6 +111,7 @@ function saveTasks() {
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
     guardarTema();
+    
 }
 
 function loadTasks() {
@@ -207,6 +208,15 @@ function mostrarTareasCompletadas() {
         }
     });
 }
+
+var sortable = new Sortable(container, {
+    animation: 150,
+    handle: '.task-div',
+    onEnd: function (evt) {
+        contarTaskDivs();
+        saveTasks(); // Guardar la lista después de cambiar el orden
+    },
+});
 
 // Evento beforeunload para guardar el estado antes de recargar la página
 window.addEventListener('beforeunload', function() {
