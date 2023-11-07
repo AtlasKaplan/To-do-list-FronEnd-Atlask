@@ -163,6 +163,51 @@ clear.addEventListener('click', function () {
     saveTasks();
 });
 
+// Asigna eventos de clic a los elementos <p>
+document.getElementById('all').addEventListener('click', function () {
+    mostrarTodasLasTareas();
+});
+
+document.getElementById('active').addEventListener('click', function () {
+    mostrarTareasActivas();
+});
+
+document.getElementById('completed').addEventListener('click', function () {
+    mostrarTareasCompletadas();
+});
+
+// Función para mostrar todas las tareas
+function mostrarTodasLasTareas() {
+    var taskDivs = document.querySelectorAll('.task-div');
+    taskDivs.forEach(function (taskDiv) {
+        taskDiv.style.display = 'flex';
+    });
+}
+
+// Función para mostrar solo tareas activas
+function mostrarTareasActivas() {
+    var taskDivs = document.querySelectorAll('.task-div');
+    taskDivs.forEach(function (taskDiv) {
+        if (taskDiv.classList.contains('active')) {
+            taskDiv.style.display = 'none';
+        } else {
+            taskDiv.style.display = 'flex';
+        }
+    });
+}
+
+// Función para mostrar solo tareas completadas
+function mostrarTareasCompletadas() {
+    var taskDivs = document.querySelectorAll('.task-div');
+    taskDivs.forEach(function (taskDiv) {
+        if (taskDiv.classList.contains('active')) {
+            taskDiv.style.display = 'flex';
+        } else {
+            taskDiv.style.display = 'none';
+        }
+    });
+}
+
 // Evento beforeunload para guardar el estado antes de recargar la página
 window.addEventListener('beforeunload', function() {
     guardarTema();
