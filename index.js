@@ -65,7 +65,7 @@ function addTask() {
 
 function createTaskElement(taskText) {
     var newDiv = document.createElement('div');
-    newDiv.classList.add('task-div', 'border-bottom');
+    newDiv.classList.add('task-div', 'brorder-bottom');
     var checkIcon = document.createElement('img');
     checkIcon.src = 'images/icon-check.svg';
     checkIcon.alt = 'check';
