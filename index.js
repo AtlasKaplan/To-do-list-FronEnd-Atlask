@@ -8,55 +8,30 @@ var container = document.querySelector('.container');
 
 // Cargar tema almacenado al cargar la página
 window.addEventListener('load', function () {
-    // Llamar a cargarTema y después a cargarTareas y contarTaskDivs cuando la carga esté completa
-    cargarTema();
-    loadTasks().then(function () {
-        contarTaskDivs();
-    });
-    guardarTema(); // Agregar esta línea para asegurarse de que el tema se aplique correctamente
-
-    // Verificar y aplicar el estado del fondo al cargar la página
-    if ((body.classList.contains('color') && !sol.classList.contains('hidden')) ||
-        (!body.classList.contains('color') && !luna.classList.contains('hidden'))) {
-        body.classList.toggle('color');
-    }
+    cargarTema(); // Cargar el tema primero
+    loadTasks(); // Cargar las tareas después
 });
 
 // Cambiar tema
 sol.addEventListener('click', function () {
-    body.classList.toggle('color');
-    cambiarTemaSol();
-    guardarTema();
+    cambiarTema();
 });
+
 luna.addEventListener('click', function () {
-    body.classList.toggle('color');
-    cambiarTemaLuna();
-    guardarTema();
+    cambiarTema();
 });
 
-// Función para cambiar el tema al modo sol
-function cambiarTemaSol() {
-    sol.classList.add('hidden');
-    luna.classList.remove('hidden');
-    body.classList.remove('color');
-
-    // Verificar y aplicar el estado del fondo
-    if (body.classList.contains('color')) {
-        body.classList.toggle('color');
-    }
+// Función para cambiar el tema
+function cambiarTema() {
+    sol.classList.toggle('hidden');
+    luna.classList.toggle('hidden');
+    body.classList.toggle('color');
+    
+    // Guardar el tema después de cambiarlo
+    guardarTema();
+    saveTasks();
 }
 
-// Función para cambiar el tema al modo luna
-function cambiarTemaLuna() {
-    luna.classList.add('hidden');
-    sol.classList.remove('hidden');
-    body.classList.add('color');
-
-    // Verificar y aplicar el estado del fondo
-    if (!body.classList.contains('color')) {
-        body.classList.toggle('color');
-    }
-}
 // Función para guardar el estado del tema en localStorage
 function guardarTema() {
     var tema = body.classList.contains('color') ? 'color' : '';
@@ -64,12 +39,21 @@ function guardarTema() {
 }
 
 // Función para cargar el estado del tema desde localStorage
+// Función para cargar el estado del tema desde localStorage
 function cargarTema() {
     var storedTema = localStorage.getItem('tema');
-    if (storedTema) {
-        body.classList.toggle('color', storedTema === 'color');
+    if (storedTema === 'color') {
+        body.classList.add('color');
+        sol.classList.add('hidden');
+        luna.classList.remove('hidden');
+    } else {
+        body.classList.remove('color');
+        luna.classList.add('hidden');
+        sol.classList.remove('hidden');
     }
 }
+
+
 function contarTaskDivs() {
     // Obtén la cantidad de elementos con la clase 'task-div' que no tienen la clase 'active'
     var totalTaskDivs = document.querySelectorAll('.task-div:not(.active)').length;
@@ -140,37 +124,44 @@ function saveTasks() {
     var taskDivs = document.querySelectorAll('.task-div');
 
     taskDivs.forEach(function (taskDiv) {
-        tasks.push(taskDiv.querySelector('p').textContent);
+        tasks.push({
+            text: taskDiv.querySelector('p').textContent,
+            active: taskDiv.classList.contains('active')
+        });
     });
 
+
     localStorage.setItem('tasks', JSON.stringify(tasks));
+    guardarTema();
 }
 
 // Función para cargar las tareas desde localStorage
 function loadTasks() {
-    return new Promise(function (resolve) {
-        var storedTasks = localStorage.getItem('tasks');
+    var storedTasks = localStorage.getItem('tasks');
 
-        if (storedTasks) {
-            var tasks = JSON.parse(storedTasks);
+    if (storedTasks) {
+        var tasks = JSON.parse(storedTasks);
 
-            tasks.forEach(function (task) {
-                createTaskElement(task);
-            });
-        }
+        tasks.forEach(function (task) {
+            createTaskElement(task.text);
 
-        // Llamamos a resolve cuando la carga de tareas está completa
-        resolve();
-    });
+            // Aplicar el estado active si es necesario
+            var lastTaskDiv = document.querySelector('.task-div:last-child');
+            if (task.active) {
+                toggleActiveState(lastTaskDiv);
+            }
+        });
+
+        // Asegúrate de contar las tareas después de cargarlas
+        contarTaskDivs();
+    }
 }
 
 function toggleActiveState(element) {
-      // Alternar la clase "active" en el contenedor al hacer clic
     element.classList.toggle('active');
-    
     contarTaskDivs();
     saveTasks();
-    }
+}
 
 // Asociar funciones a eventos
 addBtn.addEventListener('click', function () {
@@ -203,3 +194,8 @@ clear.addEventListener('click', function () {
     saveTasks();
 });
 
+// Evento beforeunload para guardar el estado antes de recargar la página
+window.addEventListener('beforeunload', function() {
+    guardarTema();
+    saveTasks();
+});
