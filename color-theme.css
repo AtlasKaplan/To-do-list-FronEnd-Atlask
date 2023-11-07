@@ -28,13 +28,16 @@
     border-color: hsla(235, 21%, 11%, 0.445);
 }
 
+
 .body.color .background-img-container .background-img{
     background-image: url('images/bg-mobile-light.jpg');
 }
 .body.color main .new-todo .input-task{
     color: var(--text-wh);
 }
-
+.body.color main .container .task-div.active{
+    color: hsla(231, 46%, 8%, 0.466);
+}
 .body.color footer{
     color: black;
 }
@@ -44,7 +47,7 @@
 
 .body.color .task-div:hover p {
     text-decoration: line-through;
-    color: hsla(0, 75%, 11%, 0.315);
+    color: hsla(231, 46%, 8%, 0.466);
 }
 
 
