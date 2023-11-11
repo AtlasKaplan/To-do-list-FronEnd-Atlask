@@ -237,6 +237,7 @@ main{
     gap: 10px;
     color: var(--text-drk);
     transition: 0.5s;
+    cursor: move;
 }
 
 .brorder-bottom{
