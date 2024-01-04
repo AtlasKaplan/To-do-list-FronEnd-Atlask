@@ -206,9 +206,8 @@ main{
     transition: 0.5s;
 }
 .task-div:hover img:nth-child(1){
-    background: linear-gradient(135deg, rgba(100, 38, 180, 0.603) 32%, rgba(12, 76, 114, 0.678) 72%);
+    background: linear-gradient(135deg, rgba(88, 21, 175, 0.603) 32%, rgba(11, 50, 73, 0.678) 72%);
     border: none;
-    padding: 7px;
 }
 .task-div:hover p{
     text-decoration: line-through;
@@ -222,8 +221,8 @@ main{
 .task-div.active img:nth-child(1){
     background: linear-gradient(135deg, rgba(71, 218, 255, 0.603) 32%, rgba(191, 88, 243, 0.678) 72%);
     border: none;
-    padding: 7px;
     transition: 0.5s;
+    padding: 4px;
 }
 .cross:hover{
     filter: invert(10%) sepia(200%) saturate(100%) hue-rotate(0deg) brightness(110%) contrast(900%);
